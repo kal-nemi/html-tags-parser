@@ -1570,4 +1570,3 @@ int main()
 int yywrap() {             // This function is called when input is exausted.
     return 1;             
 }
-
