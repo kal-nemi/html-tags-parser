@@ -5,14 +5,14 @@
 
 %% 
 
-"<head>"  {return H_S;}
-"</head>" {return H_E;}
+"<head>"  {return H_S;}	// returning head start tag to the parser.
+"</head>" {return H_E;}	// returning head end tag to the parser.
 
-"<title>" { return T_S;}     // returning unoredered list start tag to the parser.
-"</title>"   { return T_E;}   // returning unoredered list end tag to the parser.
+"<title>" { return T_S;}     // returning title start tag to the parser.
+"</title>"   { return T_E;}   // returning title end tag to the parser.
 
-"<font>" {return F_S;}      // returning ordered list start tag to the parser.
-"</font>" {return F_E;}     // returning ordered list end tag to the parser.
+"<font>" {return F_S;}      // returning font start tag to the parser.
+"</font>" {return F_E;}     // returning font end tag to the parser.
 .;                         // ignoring 
 "<" ;                      // ignoring
 ">" ;

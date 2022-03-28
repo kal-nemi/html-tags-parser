@@ -19,16 +19,16 @@ statement : statement S NEWLINE { printf("\nValid Statement!\n"); return 0; }
           ;
 
 S : H_S S4 H_E      		//We Can use title tag inside head tag
-  | S1				        //We can directly use title tag without nested use of head/font tag
-  | F_S S4 F_E S4   		//We can directly use font tag but cant use head/title tag inside it.	
+  | S1				//We can directly use title tag without nested use of head/font tag
+  | F_S S4 F_E S4   		//We can directly use nested font tag but can't use head/title tag inside it.	
   | H_S S4 S1 S4 H_E
   ;
 
-S1 : T_S S2 T_E			//title cant have nested head/font 
+S1 : T_S S2 T_E			//title can't have nested head/font 
    ;
-S3 : F_S S4 F_E
+S3 : F_S S4 F_E			//font can't have nested head/title
     ;
-S4 : S2
+S4 : S2		
    | S4 S3 /*empty*/
    ;
 S2 : /*empty*/
@@ -36,7 +36,7 @@ S2 : /*empty*/
 
 %%
 int main(){
-  printf("Enter the HTML: \n");   // Asking user for entering the input
+  printf("Enter the HTML: \n");   // Asking user for input
   yyparse();                      // yyparse function called
   system("pause");                
   return 0;                        
